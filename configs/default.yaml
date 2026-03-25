@@ -1,0 +1,20 @@
+dataset:
+  type: kitti
+  path: data/kitti
+  resize: [640, 480]
+
+camera:
+  fx: 718.856
+  fy: 718.856
+  cx: 607.1928
+  cy: 185.2157
+
+features:
+  type: orb
+  nfeatures: 2000
+
+matching:
+  ratio_test: 0.75
+
+geometry:
+  ransac_threshold: 1.0

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monocular-vo-reconstruction"
+version = "0.1.0"
+description = "Monocular visual odometry and sparse 3D reconstruction foundation."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib",
+  "numpy",
+  "open3d",
+  "opencv-python",
+  "pyyaml",
+  "scipy",
+  "tqdm",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
