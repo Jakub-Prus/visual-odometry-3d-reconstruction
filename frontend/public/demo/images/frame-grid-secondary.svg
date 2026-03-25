@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#111722"/>
+  <g stroke="#22324d" stroke-width="1">
+    <path d="M0 80h960M0 160h960M0 240h960M0 320h960M0 400h960M0 480h960"/>
+    <path d="M160 0v540M320 0v540M480 0v540M640 0v540M800 0v540"/>
+  </g>
+  <rect x="170" y="120" width="200" height="140" rx="22" fill="#17283f"/>
+  <rect x="530" y="250" width="220" height="160" rx="22" fill="#1a2d46"/>
+  <text x="40" y="60" fill="#6de5a1" font-family="IBM Plex Sans, sans-serif" font-size="28">Previous Frame</text>
+</svg>

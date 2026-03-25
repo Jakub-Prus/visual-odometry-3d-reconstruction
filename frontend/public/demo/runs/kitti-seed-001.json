@@ -1,0 +1,11 @@
+{
+  "id": "kitti-seed-001",
+  "name": "KITTI Seed Map Baseline",
+  "status": "completed",
+  "summary": {
+    "totalFrames": 20,
+    "keyframes": 14,
+    "mapPoints": 102,
+    "meanReprojectionError": 0.91
+  }
+}

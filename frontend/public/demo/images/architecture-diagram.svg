@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#0a0f18"/>
+  <g font-family="IBM Plex Sans, sans-serif">
+    <rect x="120" y="180" width="240" height="120" rx="28" fill="#11243c" stroke="#64d3ff" stroke-width="2"/>
+    <rect x="430" y="180" width="240" height="120" rx="28" fill="#12243b" stroke="#64d3ff" stroke-width="2"/>
+    <rect x="740" y="180" width="240" height="120" rx="28" fill="#12243b" stroke="#64d3ff" stroke-width="2"/>
+    <rect x="1050" y="180" width="240" height="120" rx="28" fill="#12243b" stroke="#64d3ff" stroke-width="2"/>
+    <rect x="430" y="430" width="240" height="120" rx="28" fill="#13253d" stroke="#6de5a1" stroke-width="2"/>
+    <rect x="740" y="430" width="240" height="120" rx="28" fill="#13253d" stroke="#6de5a1" stroke-width="2"/>
+    <line x1="360" y1="240" x2="430" y2="240" stroke="#64d3ff" stroke-width="4"/>
+    <line x1="670" y1="240" x2="740" y2="240" stroke="#64d3ff" stroke-width="4"/>
+    <line x1="980" y1="240" x2="1050" y2="240" stroke="#64d3ff" stroke-width="4"/>
+    <line x1="550" y1="300" x2="550" y2="430" stroke="#6de5a1" stroke-width="4"/>
+    <line x1="860" y1="300" x2="860" y2="430" stroke="#6de5a1" stroke-width="4"/>
+    <text x="130" y="150" fill="#64d3ff" font-size="40">Pipeline Architecture</text>
+    <text x="175" y="248" fill="#e9eef8" font-size="28">Dataset + Frames</text>
+    <text x="494" y="248" fill="#e9eef8" font-size="28">Initialization</text>
+    <text x="799" y="248" fill="#e9eef8" font-size="28">Triangulation</text>
+    <text x="1122" y="248" fill="#e9eef8" font-size="28">PnP Tracking</text>
+    <text x="501" y="498" fill="#e9eef8" font-size="28">Map Manager</text>
+    <text x="797" y="498" fill="#e9eef8" font-size="28">Diagnostics</text>
+  </g>
+</svg>

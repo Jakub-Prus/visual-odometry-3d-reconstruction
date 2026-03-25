@@ -1,0 +1,7 @@
+{
+  "metrics": [
+    { "frameId": 0, "numKeypoints": 2900, "numMatches": 410, "numInliers": 180, "numTrackedPoints": 0, "reprojectionError": 0.94, "poseSource": "initialization", "keyframeInserted": true },
+    { "frameId": 7, "numKeypoints": 2820, "numMatches": 190, "numInliers": 156, "numTrackedPoints": 138, "reprojectionError": 1.05, "poseSource": "pnp", "keyframeInserted": false },
+    { "frameId": 12, "numKeypoints": 2760, "numMatches": 132, "numInliers": 81, "numTrackedPoints": 94, "reprojectionError": 1.34, "poseSource": "fallback", "keyframeInserted": true }
+  ]
+}

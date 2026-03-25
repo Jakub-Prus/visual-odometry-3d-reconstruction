@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#0b1220"/>
+  <g stroke="#1b314b" stroke-width="1">
+    <path d="M0 90h960M0 180h960M0 270h960M0 360h960M0 450h960"/>
+    <path d="M120 0v540M240 0v540M360 0v540M480 0v540M600 0v540M720 0v540M840 0v540"/>
+  </g>
+  <circle cx="260" cy="180" r="80" fill="#11263e"/>
+  <circle cx="680" cy="320" r="110" fill="#0f2034"/>
+  <text x="40" y="60" fill="#64d3ff" font-family="IBM Plex Sans, sans-serif" font-size="28">Source Frame</text>
+</svg>

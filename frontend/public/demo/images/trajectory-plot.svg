@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#0b1220"/>
+  <g stroke="#243144" stroke-width="1">
+    <path d="M80 80v380h800"/><path d="M160 100v360M240 100v360M320 100v360M400 100v360M480 100v360M560 100v360M640 100v360M720 100v360M800 100v360"/>
+    <path d="M80 160h800M80 240h800M80 320h800M80 400h800"/>
+  </g>
+  <polyline fill="none" stroke="#64d3ff" stroke-width="4" points="140,410 220,380 300,340 370,290 460,240 530,210 610,180 700,150 780,130" />
+  <text x="80" y="55" fill="#64d3ff" font-family="IBM Plex Sans, sans-serif" font-size="28">Trajectory Preview</text>
+</svg>

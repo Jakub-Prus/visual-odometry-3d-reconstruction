@@ -1,0 +1,14 @@
+{
+  "experiments": [
+    {
+      "id": "exp-orb-pnp",
+      "name": "ORB + PnP Local Map",
+      "meanReprojectionError": 0.91
+    },
+    {
+      "id": "exp-sift-pnp",
+      "name": "SIFT + PnP Probe",
+      "meanReprojectionError": 0.78
+    }
+  ]
+}

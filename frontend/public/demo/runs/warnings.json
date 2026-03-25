@@ -1,0 +1,7 @@
+{
+  "warnings": [
+    { "severity": "warning", "title": "Low-parallax pair rejected", "description": "Initializer skipped early frames because the triangulation angle was too small." },
+    { "severity": "warning", "title": "PnP support dropping", "description": "Tracked 3D points fell below the preferred threshold in later frames." },
+    { "severity": "error", "title": "Fallback event", "description": "Tracking switched from PnP to frame-to-frame essential matrix motion." }
+  ]
+}

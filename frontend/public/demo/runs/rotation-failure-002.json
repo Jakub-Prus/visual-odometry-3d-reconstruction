@@ -1,0 +1,11 @@
+{
+  "id": "rotation-failure-002",
+  "name": "Pure Rotation Stress Test",
+  "status": "failed",
+  "summary": {
+    "totalFrames": 20,
+    "keyframes": 2,
+    "mapPoints": 14,
+    "meanReprojectionError": 4.8
+  }
+}
