@@ -1,12 +1,17 @@
 # Dataset and Config Domain Notes
 
 ## Config model
-The runtime config is split into five sections:
+The runtime config is split into these sections:
 - `dataset`
 - `camera`
 - `features`
 - `matching`
 - `geometry`
+- `initialization`
+- `triangulation`
+- `tracking`
+- `pnp`
+- `keyframe`
 
 These are loaded into nested dataclasses so downstream modules receive typed values instead of raw dictionaries.
 
@@ -24,3 +29,4 @@ The repository ships with a small synthetic KITTI-like sequence under `data/kitt
 - no calibration-file parsing yet
 - no timestamp handling yet
 - no train/validation split or benchmarking harness yet
+- no dataset-specific evaluation integration yet

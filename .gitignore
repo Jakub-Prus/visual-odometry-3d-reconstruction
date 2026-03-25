@@ -9,5 +9,13 @@ __pycache__/
 .vscode/
 build/
 dist/
-outputs/*
+outputs/**
 !outputs/.gitkeep
+!outputs/trajectories/
+!outputs/pointclouds/
+!outputs/logs/
+!outputs/debug/
+!outputs/trajectories/.gitkeep
+!outputs/pointclouds/.gitkeep
+!outputs/logs/.gitkeep
+!outputs/debug/.gitkeep

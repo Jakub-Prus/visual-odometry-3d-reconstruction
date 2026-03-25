@@ -1,4 +1,4 @@
-"""Run the monocular visual odometry pipeline."""
+"""Export the sparse point cloud produced by the VO pipeline."""
 
 from __future__ import annotations
 
@@ -6,6 +6,8 @@ import argparse
 import logging
 import sys
 from pathlib import Path
+
+import numpy as np
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -17,27 +19,29 @@ from src.features.detector import FeatureDetector
 from src.features.matcher import FeatureMatcher
 from src.pipeline.vo_pipeline import VisualOdometryPipeline
 from src.utils.io import resolve_path
+from src.visualization.pointcloud_vis import export_pointcloud_ply
 
 
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", default="configs/default.yaml", help="Path to the YAML configuration file.")
-    parser.add_argument("--max-frames", type=int, default=50, help="Maximum number of frames to process.")
+    parser.add_argument("--config", default="configs/mapping.yaml", help="Path to the YAML configuration file.")
+    parser.add_argument("--max-frames", type=int, default=20, help="Maximum number of frames to process.")
+    parser.add_argument(
+        "--output",
+        default="outputs/pointclouds/exported_sparse_map.ply",
+        help="Path to the exported PLY file.",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
-    """Run the VO pipeline and print a short execution summary."""
+    """Run the pipeline and export the current sparse point cloud."""
     logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(message)s")
     args = parse_args()
 
     config = load_config(resolve_path(args.config, PROJECT_ROOT))
-    dataset = KITTIDataset(
-        root_dir=resolve_path(config.dataset.path, PROJECT_ROOT),
-        camera_config=config.camera,
-        resize=config.dataset.resize,
-    )
+    dataset = KITTIDataset(resolve_path(config.dataset.path, PROJECT_ROOT), config.camera, config.dataset.resize)
     detector = FeatureDetector(config.features.type, config.features.nfeatures)
     matcher = FeatureMatcher(config.features.type, config.matching.ratio_test)
     pipeline = VisualOdometryPipeline(
@@ -52,15 +56,13 @@ def main() -> int:
         keyframe_config=config.keyframe,
         output_root=PROJECT_ROOT / "outputs",
     )
-    state = pipeline.run(max_frames=args.max_frames)
-    stats = pipeline.map_manager.get_statistics()
-
-    logging.info("Initialized: %s", state.initialized)
-    logging.info("Frame records: %s", len(state.frame_records))
-    logging.info("Keyframes: %s | Map points: %s | Valid map points: %s", stats.num_keyframes, stats.num_points, stats.num_valid_points)
-    if state.current_pose_cw is not None:
-        translation = state.current_pose_cw[:3, 3]
-        logging.info("Final pose translation (camera frame): [%.3f, %.3f, %.3f]", translation[0], translation[1], translation[2])
+    pipeline.run(max_frames=args.max_frames)
+    points = np.asarray(
+        [point.xyz for point in pipeline.map_manager.get_active_points(config.tracking.min_track_length)],
+        dtype=np.float64,
+    )
+    output_path = export_pointcloud_ply(points, resolve_path(args.output, PROJECT_ROOT))
+    logging.info("Exported %s points to %s", len(points), output_path)
     return 0
 
 

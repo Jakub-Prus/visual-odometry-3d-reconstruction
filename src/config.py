@@ -52,6 +52,54 @@ class GeometryConfig:
 
 
 @dataclass(slots=True)
+class InitializationConfig:
+    """Bootstrap initialization configuration."""
+
+    max_search_frames: int = 10
+    min_matches: int = 120
+    min_inliers: int = 80
+    min_parallax_deg: float = 1.0
+    max_reproj_error: float = 3.0
+
+
+@dataclass(slots=True)
+class TriangulationConfig:
+    """Triangulation and filtering configuration."""
+
+    min_depth: float = 0.1
+    max_reproj_error: float = 3.0
+    min_parallax_deg: float = 1.0
+
+
+@dataclass(slots=True)
+class TrackingConfig:
+    """Multi-frame tracking configuration."""
+
+    max_reproj_error: float = 4.0
+    min_track_length: int = 2
+
+
+@dataclass(slots=True)
+class PnPConfig:
+    """PnP pose estimation configuration."""
+
+    enabled: bool = True
+    reprojection_error: float = 4.0
+    confidence: float = 0.99
+    iterations_count: int = 100
+    min_inliers: int = 30
+
+
+@dataclass(slots=True)
+class KeyframeConfig:
+    """Keyframe insertion configuration."""
+
+    min_translation: float = 0.15
+    min_rotation_deg: float = 5.0
+    min_tracked_points: int = 80
+
+
+@dataclass(slots=True)
 class AppConfig:
     """Application configuration with dot-notation access."""
 
@@ -60,6 +108,11 @@ class AppConfig:
     features: FeaturesConfig = field(default_factory=FeaturesConfig)
     matching: MatchingConfig = field(default_factory=MatchingConfig)
     geometry: GeometryConfig = field(default_factory=GeometryConfig)
+    initialization: InitializationConfig = field(default_factory=InitializationConfig)
+    triangulation: TriangulationConfig = field(default_factory=TriangulationConfig)
+    tracking: TrackingConfig = field(default_factory=TrackingConfig)
+    pnp: PnPConfig = field(default_factory=PnPConfig)
+    keyframe: KeyframeConfig = field(default_factory=KeyframeConfig)
 
     @classmethod
     def from_mapping(cls, mapping: dict[str, Any]) -> "AppConfig":
@@ -78,6 +131,11 @@ class AppConfig:
             features=FeaturesConfig(**mapping.get("features", {})),
             matching=MatchingConfig(**mapping.get("matching", {})),
             geometry=GeometryConfig(**mapping.get("geometry", {})),
+            initialization=InitializationConfig(**mapping.get("initialization", {})),
+            triangulation=TriangulationConfig(**mapping.get("triangulation", {})),
+            tracking=TrackingConfig(**mapping.get("tracking", {})),
+            pnp=PnPConfig(**mapping.get("pnp", {})),
+            keyframe=KeyframeConfig(**mapping.get("keyframe", {})),
         )
 
 
