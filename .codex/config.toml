@@ -1,0 +1,16 @@
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+personality = "pragmatic"
+approval_policy = "on-failure"
+
+[workspace]
+root_markers = ["AGENTS.md", ".codex/config.toml", ".git"]
+prefer_vcs_root = true
+
+[context]
+prefer_local_scope = true
+max_open_files = 8
+
+[planning]
+persist_plans_dir = "plans"
+plan_for_non_trivial = true
